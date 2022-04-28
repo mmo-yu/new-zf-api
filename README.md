@@ -37,10 +37,10 @@
 
 **学生信息：/stuinfo**
 参数名|示例值|必选|参数描述 
-- | - | - | - |
-host | https://jw.gxvnu.edu.cn | 是 | URL地址 |
-username | 190XXX | 是 | 学号 |
-password | xxx    | 是 | 密码 |
+- | - | - | - 
+host | https://jw.gxvnu.edu.cn | 是 | URL地址 
+username | 190XXX | 是 | 学号 
+password | xxx    | 是 | 密码 
 
 **改课通知：/notice**
 参数名|示例值|必选|参数描述 
