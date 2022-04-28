@@ -43,6 +43,12 @@ module.exports = appInfo => {
       schedule_url: '/jwglxt/kbcx/xskbcx_cxXsKb.html?gnmkdm=N2151',
       // 成绩查询
       score_url: '/jwglxt/cjcx/cjcx_cxDgXscj.html?doType=query&gnmkdm=N305005',
+      // 教学楼查询
+      built_url: '/jwglxt/cdjy/cdjy_cxXqjc.html',
+      // 教室查询
+      classRoom_url: '/jwglxt/cdjy/cdjy_cxKxcdlb.html?doType=query&gnmkdm=N2155',
+      // 课程通知
+      notice_url: '/jwglxt/xtgl/index_cxDbsy.html?doType=query'
     }
   };
   // add http_proxy to httpclient

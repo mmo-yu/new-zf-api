@@ -26,7 +26,7 @@ class ApiController extends Controller {
         const { year, term } = ctx.app.config.edu;
         const userInfo = await ctx.service.login.login(host, username, password);
         if (userInfo.success) {
-            const scheduleInfo = await this.service.schedule.index(host, userInfo.session, year, term);
+            const scheduleInfo = await ctx.service.schedule.index(host, userInfo.session, year, term);
             ctx.body = scheduleInfo
         } else {
             ctx.body = {
@@ -42,8 +42,57 @@ class ApiController extends Controller {
         const { host, username, password, year, term } = ctx.params;
         const userInfo = await ctx.service.login.login(host, username, password);
         if (userInfo.success) {
-            const score = await this.service.score.index(host, userInfo.session, year, term);
+            const score = await ctx.service.score.index(host, userInfo.session, year, term);
             ctx.body = score
+        } else {
+            ctx.body = {
+                success: false,
+                message: userInfo.message
+            }
+        }
+    }
+
+    // 课程通知
+    async getNotice() {
+        const { ctx } = this;
+        const { host, username, password } = ctx.params;
+        const userInfo = await ctx.service.login.login(host, username, password);
+        if (userInfo.success) {
+            const notice = await ctx.service.notice.index(host, loginInfo.session);
+            ctx.body = notice;
+        } else {
+            ctx.body = {
+                success: false,
+                message: userInfo.message
+            }
+        }
+    }
+    // 教学楼查询
+    async getBuilt() {
+        const { ctx } = this;
+        const { host, username, password, campus } = ctx.params;
+        const { year, term } = ctx.app.config.edu;
+        const userInfo = await ctx.service.login.login(host, username, password);
+        if (userInfo.success) {
+            const built = await ctx.service.classroom.built(host, year, term, campus, userInfo.session);
+            ctx.body = built
+        } else {
+            ctx.body = {
+                success: false,
+                message: userInfo.message
+            }
+        }
+    }
+
+    // 教室查询
+    async getClassRoom() {
+        const { ctx } = this;
+        const { host, username, password } = ctx.params;
+        const { year, term } = ctx.app.config.edu;
+        const userInfo = await ctx.service.login.login(host, username, password);
+        if (userInfo.success) {
+            const roomInfo = await ctx.service.classroom.classroom(host, year, term, campus, built, weeks, day, periods, seatsmin, seatsmax, userInfo.session);
+            ctx.body = roomInfo
         } else {
             ctx.body = {
                 success: false,
