@@ -50,6 +50,7 @@
 host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
 username | 190XXX | 是 | 学号 
 password | xxx    | 是 | 密码 
+<<<<<<< HEAD
 
 #### 改课通知
 ```
@@ -105,7 +106,63 @@ $ npm install
 ```bash
 $ npm run dev
 ```
+=======
+>>>>>>> 4d3e85b52751cb32f67dd97bf759f880545f5e63
 
+#### 改课通知
+```
+/notice
+```
+
+参数名|示例值|必选|参数描述 
+ ---- | ---- | ---- | ----
+host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
+username | 190XXX | 是 | 学号 |
+password | xxx    | 是 | 密码 |
+
+#### 成绩查询
+```
+/score
+```
+
+参数名|示例值|必选|参数描述 
+ ---- | ---- | ---- | ----
+host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
+username | 190XXX | 是 | 学号 |
+password | xxx    | 是 | 密码 |
+year | 2021 | 是 | 学年 |
+term | 2 | 是 | 学期 |
+
+#### 课表查询
+```
+/course
+```
+
+参数名|示例值|必选|参数描述 
+ ---- | ---- | ---- | ----
+host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
+username | 190XXX | 是 | 学号 |
+password | xxx    | 是 | 密码 |
+
+
+------
+
+## 使用部署
+ - 默认学年、学期 在config/config/default.js中，请根据需要自行修改
+
+ - 请确保服务器或虚拟环境安装了**Node.js**
+
+### 1.安装依赖模块
+
+```bash
+$ npm install
+```
+
+### 2.终端运行
+
+```bash
+$ npm run dev
+```
 ```bash
 $ npm start
 $ npm stop
