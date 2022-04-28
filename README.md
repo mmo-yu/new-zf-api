@@ -51,7 +51,6 @@
 host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
 username | 190XXX | 是 | 学号 
 password | xxx    | 是 | 密码 
-<<<<<<< HEAD
 
 #### 改课通知
 ```
