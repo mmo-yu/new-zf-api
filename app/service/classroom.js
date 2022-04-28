@@ -46,7 +46,7 @@ class ClassroomService extends Service {
         return {
             success: true,
             message: "教学楼查询成功",
-            built: response_data.list
+            built: response_data.lhList
         };
     }
 

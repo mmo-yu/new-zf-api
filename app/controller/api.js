@@ -58,7 +58,7 @@ class ApiController extends Controller {
         const { host, username, password } = ctx.params;
         const userInfo = await ctx.service.login.login(host, username, password);
         if (userInfo.success) {
-            const notice = await ctx.service.notice.index(host, loginInfo.session);
+            const notice = await ctx.service.notice.index(host, userInfo.session);
             ctx.body = notice;
         } else {
             ctx.body = {
@@ -87,7 +87,7 @@ class ApiController extends Controller {
     // 教室查询
     async getClassRoom() {
         const { ctx } = this;
-        const { host, username, password } = ctx.params;
+        const { host, username, password, campus, built, weeks, day, periods, seatsmin, seatsmax } = ctx.params;
         const { year, term } = ctx.app.config.edu;
         const userInfo = await ctx.service.login.login(host, username, password);
         if (userInfo.success) {
