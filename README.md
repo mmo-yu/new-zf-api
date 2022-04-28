@@ -100,7 +100,7 @@ password | xxx    | 是 | 密码 |
 $ npm install
 ```
 
-### 2.用终端运行
+### 2.终端运行
 
 ```bash
 $ npm run dev
