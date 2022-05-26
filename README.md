@@ -1,6 +1,6 @@
 # 新正方教务管理系统API
 
-
+### 部分代码来自 [SchoolApi](https://github.com/LeiWang1999/SchoolApi)
 
 
 #### 项目已部署到微信小程序，可扫码体验!
@@ -51,7 +51,6 @@
 host | ```https://jw.gxvnu.edu.cn``` | 是 | URL地址 |
 username | 190XXX | 是 | 学号 
 password | xxx    | 是 | 密码 
-<<<<<<< HEAD
 
 #### 改课通知
 ```
