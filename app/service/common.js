@@ -2,7 +2,7 @@
 
 const Service = require('egg').Service;
 const cheerio = require('cheerio');
-const getenPassword = require('../utils/rsa');
+const getenPassword = require('nwezf-rsa');
 
 class CommonService extends Service {
 
@@ -26,7 +26,7 @@ class CommonService extends Service {
         let res = await ctx.curl(url, options);
         let result = JSON.parse(res.data);
         let session = res.headers['set-cookie'];
-        session = session[0].split(';')[0]
+        session = session[0].split(';')[0];
         return {
             modulus: result.modulus,
             exponent: result.exponent,
@@ -56,7 +56,7 @@ class CommonService extends Service {
         let resultHtml = (res.data.toString());
         let cheerioModel = cheerio.load(resultHtml);
         let csrf_token = cheerioModel('#csrftoken')[0].attribs.value;
-        return { token: csrf_token, session }
+        return { token: csrf_token }
     }
 
     async process_public(password, modulus, exponent) {

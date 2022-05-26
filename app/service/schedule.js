@@ -7,12 +7,9 @@ class ScheduleService extends Service {
     async index(host, session, year, term) {
         const ctx = this.ctx;
         const { schedule_url } = ctx.app.config.api;
-        //   默认第一学期
-        let termMap = { "": "3", "1": "3", "2": "12", "3": "16", "all": '' };
-        term = termMap[term];
         let data = {
             'xnm': year,
-            'xqm': term
+            'xqm': term == 2 ? 12 : 3
         }
         let url = host + schedule_url;
         let headers = {

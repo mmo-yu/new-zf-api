@@ -13,8 +13,6 @@ class ScoreService extends Service {
         };
         const ctx = this.ctx;
         const { score_url } = ctx.app.config.api;
-        const termMap = { "": "3", "1": "3", "2": "12", "3": "16", "all": '' };
-        term = termMap[term];
         let url = host + score_url;
         let data = {
             '_search': 'false',
@@ -25,7 +23,7 @@ class ScoreService extends Service {
             'queryModel.sortOrder': 'asc',
             'time': '0',
             'xnm': year,
-            'xqm': term
+            'xqm': term == 2 ? 12: 3
         };
         let headers = {
             'Host': host.split('/')[2],

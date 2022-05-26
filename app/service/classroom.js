@@ -12,8 +12,6 @@ class ClassroomService extends Service {
      * @param {String} session Cookie
      */
     async built(host, year, term, campus, session) {
-        const campusMap = { "": "1", "1": "1", "2": "C31EC193405E2B10E055000000000001" };
-        campus = campusMap[campus];
         const ctx = this.ctx;
         const { built_url } = ctx.app.config.api;
         const url = host + built_url;
@@ -30,7 +28,7 @@ class ClassroomService extends Service {
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
         };
         const data = {
-            xqh_id: campus,
+            xqh_id: campus == 2 ? 'C31EC193405E2B10E055000000000001' : '1',
             xnm: year,
             xqm: term,
             gnmkdm: 'N2155'
@@ -66,10 +64,6 @@ class ClassroomService extends Service {
      * @returns 
      */
     async classroom(host, year, term, campus, built, weeks, day, periods, seatsmin, seatsmax, session) {
-        const campusMap = { "": "1", "1": "1", "2": "C31EC193405E2B10E055000000000001" };
-        const termMap = { "": "3", "1": "3", "2": "12", "3": "16", "all": '' };
-        campus = campusMap[campus];
-        term = termMap[term];
         let zcd = 0;
         let jcd = 0;
         // 傻逼正方 周次还要转换
@@ -84,9 +78,9 @@ class ClassroomService extends Service {
         const url = host + classRoom_url;
         const data = {
             'fwzt': 'cx',
-            'xqh_id': campus,   // 校区id 本部 [ 1 ] 罗文 [ C31EC193405E2B10E055000000000001 ]
+            'xqh_id': campus == 2 ? 'C31EC193405E2B10E055000000000001' : '1',   // 校区id 本部 [ 1 ] 罗文 [ C31EC193405E2B10E055000000000001 ]
             'xnm': year,        // 学年
-            'xqm': term,        // 学期
+            'xqm': term == 2 ? 12 : 3,        // 学期
             'cdlb_id': '',      // 场地类型
             'lh': built,        // 楼号
             'qszws': seatsmin,  // 最小座位
